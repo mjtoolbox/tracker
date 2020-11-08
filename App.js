@@ -10,6 +10,7 @@ const loadFonts = () => {
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   });
+  console.log('Font loaded');
 };
 
 export default function App() {
@@ -24,7 +25,6 @@ export default function App() {
       />
     );
   }
-
   return <TrackerNavigator />;
 }
 

@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 const NewMoodScreen = (props) => {
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
+      <Text>New mood logging screen. How do you feel right now?</Text>
     </View>
   );
 };

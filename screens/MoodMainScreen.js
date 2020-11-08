@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { Icon } from 'react-native-elements';
 import MoodCircleProgress from '../components/MoodCircleProgress';
 import MoodTitle from '../components/MoodTile';
 
 const MoodMainScreen = (props) => {
   return (
     <View style={styles.container}>
+      <Icon
+        name='add'
+        raised
+        style={styles.iconContainer}
+        onPress={() => props.navigation.navigate('NewMood')}
+      />
       <View style={styles.circleContainer}>
         <View style={styles.circle}>
           <MoodCircleProgress score={3} />
@@ -42,11 +49,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  iconContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
   circleContainer: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginVertical: 20,
+    // borderColor: 'black',
+    // borderWidth: 0.5,
   },
   circle: {
     marginHorizontal: 20,
