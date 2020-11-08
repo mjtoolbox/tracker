@@ -4,7 +4,7 @@ import { HeaderTitle } from 'react-navigation-stack';
 
 const MainCard = (props) => {
   return (
-    <View>
+    <View style={styles.card}>
       <Text style={styles.title}>{props.title}</Text>
       <TouchableOpacity activeOpacity={0.5} onPress={props.onClick}>
         <Image
@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
     fontFamily: 'open-sans-bold',
     fontSize: 18,
     textAlign: 'center',
+  },
+  card: {
+    paddingBottom: 20,
   },
 });
 export default MainCard;
