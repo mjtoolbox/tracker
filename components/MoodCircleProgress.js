@@ -19,7 +19,7 @@ const MoodCircleProgress = (props) => {
 
 const styles = StyleSheet.create({
   score: {
-    fontFamily: 'open-sans-bold',
+    // fontFamily: 'open-sans-bold',
     fontSize: 20,
   },
 });

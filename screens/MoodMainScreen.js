@@ -5,7 +5,18 @@ import MoodCircleProgress from '../components/MoodCircleProgress';
 const MoodMainScreen = (props) => {
   return (
     <View style={styles.container}>
-      <MoodCircleProgress score={4} />
+      <View style={styles.circle}>
+        <MoodCircleProgress score={4} />
+      </View>
+      <View style={styles.circle}>
+        <MoodCircleProgress score={2} />
+      </View>
+      <View style={styles.circle}>
+        <MoodCircleProgress score={5} />
+      </View>
+      <View style={styles.circle}>
+        <MoodCircleProgress score={3} />
+      </View>
     </View>
   );
 };
@@ -16,6 +27,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  circle: {
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 });
 export default MoodMainScreen;
