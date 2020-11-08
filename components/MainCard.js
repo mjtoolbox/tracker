@@ -1,0 +1,26 @@
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { HeaderTitle } from 'react-navigation-stack';
+
+const MainCard = (props) => {
+  return (
+    <View>
+      <Text style={styles.title}>{props.title}</Text>
+      <TouchableOpacity activeOpacity={0.5} onPress={props.onClick}>
+        <Image
+          source={props.imageUrl}
+          containerStyle={{ width: 200, height: 200 }}
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  title: {
+    fontFamily: 'open-sans-bold',
+    fontSize: 18,
+    textAlign: 'center',
+  },
+});
+export default MainCard;

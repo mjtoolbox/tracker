@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import TrackerNavigator from './navigation/TrackerNavigator';
 
 const loadFonts = () => {
   Font.loadAsync({
@@ -12,14 +13,19 @@ const loadFonts = () => {
 };
 
 export default function App() {
-    
+  const [fontLoaded, setFontLoaded] = useState(false);
 
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style='auto' />
-    </View>
-  );
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={loadFonts}
+        onFinish={() => setFontLoaded(true)}
+        onError={(err) => console.log(err)}
+      />
+    );
+  }
+
+  return <TrackerNavigator />;
 }
 
 const styles = StyleSheet.create({

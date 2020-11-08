@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-const MoodMainScreen = (props) => {
+const FoodMainScreen = (props) => {
   return (
     <View style={styles.container}>
-      <Text>Mood Main</Text>
+      <Text>Food Main Screen</Text>
     </View>
   );
 };
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default MoodMainScreen;
+export default FoodMainScreen;
