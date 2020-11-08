@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import ProgressCircle from 'react-native-progress-circle';
-import { Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const MoodCircleProgress = (props) => {
   return (
     <ProgressCircle
       percent={props.score * 20}
-      radius={30}
+      radius={40}
       borderWidth={8}
       color='#3399FF'
       shadowColor='#999'
