@@ -14,24 +14,6 @@ const MoodMainScreen = (props) => {
         style={styles.iconContainer}
         onPress={() => props.navigation.navigate('NewMood')}
       />
-      {/* <View style={styles.circleContainer}>
-        <View style={styles.circle}>
-          <MoodCircleProgress score={3} />
-          <Text style={styles.daytext}>WED</Text>
-        </View>
-        <View style={styles.circle}>
-          <MoodCircleProgress score={2} />
-          <Text style={styles.daytext}>THR</Text>
-        </View>
-        <View style={styles.circle}>
-          <MoodCircleProgress score={5} />
-          <Text style={styles.daytext}>FRI</Text>
-        </View>
-        <View style={styles.circle}>
-          <MoodCircleProgress score={4} />
-          <Text style={styles.daytext}>SAT</Text>
-        </View>
-      </View> */}
       <MoodStatus />
       <View style={styles.detailContainer}>
         <MoodTitle />
@@ -56,7 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
-  
+
   detailContainer: {
     flex: 1,
     flexDirection: 'column',
