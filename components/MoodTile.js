@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   day: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 18,
   },
   iconWrap: {
     paddingHorizontal: 20,

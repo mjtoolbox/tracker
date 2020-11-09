@@ -64,10 +64,10 @@ const styles = StyleSheet.create({
     // borderWidth: 0.5,
   },
   circle: {
-    marginHorizontal: 20,
+    marginHorizontal: 15,
   },
   daytext: {
-    paddingLeft: 30,
+    paddingLeft: 20,
   },
   detailContainer: {
     flex: 1,
