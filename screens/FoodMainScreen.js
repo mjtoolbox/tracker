@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 const FoodMainScreen = (props) => {
   return (
-    <View style={styles.container}>
-      <Text>Food Main Screen</Text>
+    <View>
+      <Text>Food main screen</Text>
     </View>
   );
 };
