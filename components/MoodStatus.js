@@ -6,7 +6,7 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const DATA = [
+const list = [
   {
     id: Math.random().toString(),
     value: getRndInteger(1, 5),
@@ -25,6 +25,7 @@ const DATA = [
   },
 ];
 
+// https://github.com/leecade/react-native-swiper
 const MoodStatus = (props) => {
   return (
     <View style={styles.circleContainer}>

@@ -5,10 +5,15 @@ import { Badge } from 'react-native-elements';
 const MoodTile = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.day}>Aug 21{'\n'}WED</Text>
+      <Text style={styles.day}>
+        {props.date}
+        {'\n'}
+        {props.day}
+      </Text>
       <View style={styles.iconWrap}>
         <Image
-          source={require('../assets/sunny.png')}
+          source={props.weatherIcon}
+          // source={require('../assets/sunny.png')}
           style={styles.tinylogo}
         />
       </View>
@@ -27,7 +32,7 @@ const MoodTile = (props) => {
         />
       </View>
       <View>
-        <Text style={styles.score}>3</Text>
+        <Text style={styles.score}>{props.score}</Text>
       </View>
     </View>
   );
@@ -37,7 +42,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
     padding: 5,
     marginVertical: 3,

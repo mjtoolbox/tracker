@@ -4,6 +4,7 @@ import { Icon } from 'react-native-elements';
 import MoodCircleProgress from '../components/MoodCircleProgress';
 import MoodStatus from '../components/MoodStatus';
 import MoodTitle from '../components/MoodTile';
+import MoodList from '../components/MoodList';
 
 const MoodMainScreen = (props) => {
   return (
@@ -15,13 +16,7 @@ const MoodMainScreen = (props) => {
         onPress={() => props.navigation.navigate('NewMood')}
       />
       <MoodStatus />
-      <View style={styles.detailContainer}>
-        <MoodTitle />
-        <MoodTitle />
-        <MoodTitle />
-        <MoodTitle />
-        <MoodTitle />
-      </View>
+      <MoodList />
     </View>
   );
 };
@@ -37,13 +32,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-start',
-  },
-
-  detailContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 export default MoodMainScreen;
