@@ -6,7 +6,7 @@ const MoodCircleProgress = (props) => {
   return (
     <ProgressCircle
       percent={props.score * 20}
-      radius={40}
+      radius={30}
       borderWidth={8}
       color='#3399FF'
       shadowColor='#999'

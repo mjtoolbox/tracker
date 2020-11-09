@@ -18,7 +18,6 @@ const MainScreen = (props) => {
         title='Mood'
         onClick={moodClickHandler}
       />
-
       <MainCard
         imageUrl={require('../assets/food.jpg')}
         title='Food'

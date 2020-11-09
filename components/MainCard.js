@@ -7,10 +7,7 @@ const MainCard = (props) => {
     <View style={styles.card}>
       <Text style={styles.title}>{props.title}</Text>
       <TouchableOpacity activeOpacity={0.5} onPress={props.onClick}>
-        <Image
-          source={props.imageUrl}
-          containerStyle={{ width: 200, height: 200 }}
-        />
+        <Image source={props.imageUrl} style={styles.image} />
       </TouchableOpacity>
     </View>
   );
@@ -24,6 +21,10 @@ const styles = StyleSheet.create({
   },
   card: {
     paddingBottom: 20,
+  },
+  image: {
+    width: 150,
+    height: 150,
   },
 });
 export default MainCard;

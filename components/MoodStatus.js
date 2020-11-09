@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, FlatList, View, Button, Text } from 'react-native';
 import MoodCircleProgress from '../components/MoodCircleProgress';
 
@@ -25,13 +25,9 @@ const DATA = [
   },
 ];
 
-/**
- * Strange error Error: Text strings must be rendered within a <Text> component. occurs when MoodStatus component is used.
- * @param {*} props
- */
 const MoodStatus = (props) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Mood Status</Text>
       <MoodCircleProgress score={3} title='3' />;
     </View>
