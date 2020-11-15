@@ -3,6 +3,16 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { Badge } from 'react-native-elements';
 
 const MoodTile = (props) => {
+  const iconSource = () => {
+    if (props.icon === 'sunny') {
+      return require('../assets/sunny.png');
+    } else if (props.icon === 'cloudy') {
+      return require('../assets/cloudy.png');
+    } else {
+      return require('../assets/rainy.png');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.day}>
@@ -12,7 +22,7 @@ const MoodTile = (props) => {
       </Text>
       <View style={styles.iconWrap}>
         <Image
-          source={props.weatherIcon}
+          source={iconSource()}
           // source={require('../assets/sunny.png')}
           style={styles.tinylogo}
         />
@@ -50,6 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderColor: 'black',
     borderWidth: 0.5,
+    borderRadius: 5,
   },
   day: {
     textAlign: 'center',

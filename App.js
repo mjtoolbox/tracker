@@ -4,13 +4,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import TrackerNavigator from './navigation/TrackerNavigator';
+import { MOODS, TAGS } from './data/mood-data';
 
 const loadFonts = () => {
-  Font.loadAsync({
+  return Font.loadAsync({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   });
-  console.log('Font loaded');
 };
 
 export default function App() {
