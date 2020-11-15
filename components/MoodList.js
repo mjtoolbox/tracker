@@ -17,7 +17,7 @@ const formattedDate = (itemDate) => {
   return (
     d.getFullYear() +
     '/' +
-    d.getMonth() +
+    (d.getMonth() + 1) +
     '/' +
     d.getDate() +
     ' ' +
@@ -31,6 +31,7 @@ const MoodList = (props) => {
   const renderMoodTile = (itemData) => {
     return (
       <MoodTile
+        moodId={itemData.item.id}
         date={formattedDate(itemData.item.date)}
         day={new Date(itemData.item.date).getDay()}
         icon={itemData.item.weatherIcon}

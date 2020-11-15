@@ -1,11 +1,12 @@
 import Mood from '../models/Mood';
 import Tag from '../models/Tag';
 
+// Jan = 0, Aug = 7
 export const MOODS = [
-  new Mood('m1', new Date(2020, 8, 31, 10, 25), 'sunny', 5),
-  new Mood('m2', new Date(2020, 9, 1, 13, 0), 'sunny', 3),
-  new Mood('m3', new Date(2020, 9, 2, 9, 5), 'rainy', 4),
-  new Mood('m4', new Date(2020, 9, 3, 15, 0), 'cloudy', 2),
+  new Mood('m1', new Date(2020, 7, 31, 10, 25), 'sunny', 5),
+  new Mood('m2', new Date(2020, 8, 1, 13, 0), 'sunny', 3),
+  new Mood('m3', new Date(2020, 8, 2, 9, 5), 'rainy', 4),
+  new Mood('m4', new Date(2020, 8, 3, 15, 0), 'cloudy', 2),
 ];
 
 export const TAGS = [

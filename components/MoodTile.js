@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { Badge } from 'react-native-elements';
+import { TAGS } from '../data/mood-data';
+import TagList from './TagList';
 
 const MoodTile = (props) => {
+  const displayTags = TAGS.filter((tag) => tag.moodId === props.moodId);
+
   const iconSource = () => {
     if (props.icon === 'sunny') {
       return require('../assets/sunny.png');
@@ -13,32 +17,40 @@ const MoodTile = (props) => {
     }
   };
 
+  const dayOfWeek = () => {
+    if (props.day == '0') {
+      return 'SUN';
+    } else if (props.day == '1') {
+      return 'MON';
+    } else if (props.day == '2') {
+      return 'TUE';
+    } else if (props.day == '3') {
+      return 'WED';
+    } else if (props.day == '4') {
+      return 'THR';
+    } else if (props.day == '5') {
+      return 'FRI';
+    } else if (props.day == '6') {
+      return 'SAT';
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.day}>
-        {props.date}
-        {'\n'}
-        {props.day}
-      </Text>
+      <View>
+        <View>
+          <Text style={styles.day}>{props.date}</Text>
+        </View>
+        <View>
+          <Text>{dayOfWeek()}</Text>
+        </View>
+      </View>
       <View style={styles.iconWrap}>
-        <Image
-          source={iconSource()}
-          // source={require('../assets/sunny.png')}
-          style={styles.tinylogo}
-        />
+        <Image source={iconSource()} style={styles.tinylogo} />
       </View>
       <View style={styles.badgeContainer}>
-        <Badge
-          value={
-            <Text style={{ color: 'white', margin: 10 }}>Called friends</Text>
-          }
-          status='primary'
-        />
-        <Badge
-          value={
-            <Text style={{ color: 'white', margin: 10 }}>Drank greentea</Text>
-          }
-          status='primary'
+        <TagList
+          tagList={displayTags}
         />
       </View>
       <View>
@@ -64,7 +76,7 @@ const styles = StyleSheet.create({
   },
   day: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
   },
   iconWrap: {
     paddingHorizontal: 20,
