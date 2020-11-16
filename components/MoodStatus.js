@@ -1,63 +1,37 @@
 import React from 'react';
-import { StyleSheet, FlatList, View, Button, Text } from 'react-native';
+import { StyleSheet, FlatList, View, Text } from 'react-native';
 import MoodCircleProgress from './MoodCircleProgress';
-
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const list = [
-  {
-    id: Math.random().toString(),
-    value: getRndInteger(1, 5),
-  },
-  {
-    id: Math.random().toString(),
-    value: getRndInteger(1, 5),
-  },
-  {
-    id: Math.random().toString(),
-    value: getRndInteger(1, 5),
-  },
-  {
-    id: Math.random().toString(),
-    value: getRndInteger(1, 5),
-  },
-];
+import { MOODS } from '../data/mood-data';
 
 // https://github.com/leecade/react-native-swiper
 const MoodStatus = (props) => {
-  return (
-    <View style={styles.circleContainer}>
+  const renderCircle = (itemData) => {
+    return (
       <View style={styles.circle}>
-        <MoodCircleProgress score={3} />
-        <Text style={styles.daytext}>WED</Text>
-      </View>
-      <View style={styles.circle}>
-        <MoodCircleProgress score={2} />
+        <MoodCircleProgress score={itemData.item.score} />
         <Text style={styles.daytext}>THR</Text>
       </View>
-      <View style={styles.circle}>
-        <MoodCircleProgress score={5} />
-        <Text style={styles.daytext}>FRI</Text>
-      </View>
-      <View style={styles.circle}>
-        <MoodCircleProgress score={4} />
-        <Text style={styles.daytext}>SAT</Text>
-      </View>
+    );
+  };
+  return (
+    <View style={styles.circleContainer}>
+      <FlatList data={MOODS} renderItem={renderCircle} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  circle: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   circleContainer: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: 20,
-    // borderColor: 'black',
-    // borderWidth: 0.5,
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
   },
   circle: {
     marginHorizontal: 15,

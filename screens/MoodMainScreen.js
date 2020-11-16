@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import MoodCircleProgress from '../components/MoodCircleProgress';
 import MoodStatus from '../components/MoodStatus';
-import MoodTitle from '../components/MoodTile';
 import MoodList from '../components/MoodList';
 
 const MoodMainScreen = (props) => {
@@ -25,8 +23,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'stretch',
-    justifyContent: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // alignItems: 'stretch',
+    // justifyContent: 'flex-start',
   },
   iconContainer: {
     flex: 1,
