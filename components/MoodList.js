@@ -3,15 +3,6 @@ import { StyleSheet, View, FlatList } from 'react-native';
 import MoodTile from './MoodTile';
 import { MOODS, TAGS } from '../data/mood-data';
 
-const renderItem = (item) => {
-  <MoodTile
-    date={item.date}
-    day={item.day}
-    weatherIcon={item.weatherIcon}
-    score={item.score}
-  />;
-};
-
 const formattedDate = (itemDate) => {
   var d = new Date(itemDate);
   return (
@@ -23,6 +14,7 @@ const formattedDate = (itemDate) => {
     ' ' +
     d.getHours() +
     ':' +
+    (d.getMinutes() < 10 ? '0' : '') +
     d.getMinutes()
   );
 };

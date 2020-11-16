@@ -37,7 +37,7 @@ const MoodTile = (props) => {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.dateContainer}>
         <View>
           <Text style={styles.day}>{props.date}</Text>
         </View>
@@ -49,9 +49,7 @@ const MoodTile = (props) => {
         <Image source={iconSource()} style={styles.tinylogo} />
       </View>
       <View style={styles.badgeContainer}>
-        <TagList
-          tagList={displayTags}
-        />
+        <TagList tagList={displayTags} />
       </View>
       <View>
         <Text style={styles.score}>{props.score}</Text>
@@ -74,25 +72,27 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 5,
   },
+  dateContainer: {
+    marginLeft: 3,
+    paddingRight: 20,
+    width: 140,
+  },
   day: {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: 16,
   },
   iconWrap: {
-    paddingHorizontal: 20,
+    paddingRight: 20,
   },
   tinylogo: {
     width: 40,
     height: 40,
   },
   badgeContainer: {
-    flex: 1,
-    flexWrap: 'wrap',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    width: 130,
   },
   score: {
+    fontFamily: 'open-sans',
     fontSize: 40,
     fontWeight: 'bold',
     backgroundColor: '#0275d8',
