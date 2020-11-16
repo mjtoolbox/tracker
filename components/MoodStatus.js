@@ -2,20 +2,26 @@ import React from 'react';
 import { StyleSheet, FlatList, View, Text } from 'react-native';
 import MoodCircleProgress from './MoodCircleProgress';
 import { MOODS } from '../data/mood-data';
+import Circle from './Circle';
 
 // https://github.com/leecade/react-native-swiper
 const MoodStatus = (props) => {
   const renderCircle = (itemData) => {
     return (
-      <View style={styles.circle}>
-        <MoodCircleProgress score={itemData.item.score} />
-        <Text style={styles.daytext}>THR</Text>
-      </View>
+      <Circle
+        score={itemData.item.score}
+        day={new Date(itemData.item.date).getDay()}
+      />
     );
   };
   return (
     <View style={styles.circleContainer}>
-      <FlatList data={MOODS} renderItem={renderCircle} />
+      <FlatList
+        data={MOODS}
+        renderItem={renderCircle}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
     </View>
   );
 };
@@ -30,14 +36,8 @@ const styles = StyleSheet.create({
   circleContainer: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'baseline',
-    justifyContent: 'space-between',
-  },
-  circle: {
-    marginHorizontal: 15,
-  },
-  daytext: {
-    paddingLeft: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 export default MoodStatus;

@@ -7,6 +7,14 @@ export const MOODS = [
   new Mood('m2', new Date(2020, 8, 1, 13, 0), 'sunny', 3),
   new Mood('m3', new Date(2020, 8, 2, 9, 5), 'rainy', 4),
   new Mood('m4', new Date(2020, 8, 3, 15, 0), 'cloudy', 2),
+  new Mood('m5', new Date(2020, 8, 4, 12, 0), 'rainy', 4),
+  new Mood('m6', new Date(2020, 8, 5, 15, 30), 'rainy', 1),
+  new Mood('m7', new Date(2020, 8, 6, 10, 25), 'sunny', 5),
+  new Mood('m8', new Date(2020, 8, 7, 13, 0), 'sunny', 3),
+  new Mood('m9', new Date(2020, 8, 8, 9, 5), 'rainy', 4),
+  new Mood('m10', new Date(2020, 8, 9, 15, 0), 'cloudy', 2),
+  new Mood('m11', new Date(2020, 8, 10, 12, 0), 'rainy', 4),
+  new Mood('m12', new Date(2020, 8, 11, 15, 30), 'rainy', 1),
 ];
 
 export const TAGS = [
