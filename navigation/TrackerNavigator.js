@@ -5,6 +5,7 @@ import MoodMainScreen from '../screens/MoodMainScreen';
 import NewMoodScreen from '../screens/NewMoodScreen';
 import FoodMainScreen from '../screens/FoodMainScreen';
 
+//TODO: Customize Navigation label
 const TrackerNavigator = createStackNavigator({
   Tracker: MainScreen,
   MoodMain: {

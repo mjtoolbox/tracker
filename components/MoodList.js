@@ -45,7 +45,7 @@ const MoodList = (props) => {
 
 const styles = StyleSheet.create({
   detailContainer: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'center',

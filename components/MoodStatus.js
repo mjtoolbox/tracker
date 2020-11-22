@@ -4,7 +4,8 @@ import MoodCircleProgress from './MoodCircleProgress';
 import { MOODS } from '../data/mood-data';
 import Circle from './Circle';
 
-// https://github.com/leecade/react-native-swiper
+//TODO: item swipe using https://github.com/leecade/react-native-swiper
+//TODO: separators with highlight
 const MoodStatus = (props) => {
   const renderCircle = (itemData) => {
     return (
