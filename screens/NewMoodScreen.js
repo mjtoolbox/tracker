@@ -7,12 +7,20 @@ import MoodTag from '../components/MoodTag';
 //TODO: Custom marker for MultiSlider
 const NewMoodScreen = (props) => {
   const [weather, setWeather] = useState('');
+  const [tagList, setTagList] = useState([]);
+
+  const addTagHandler = (tagName) => {
+    setTagList((currentTagList)=>[
+      ...currentTagList,
+      { id: Math.random().toString(), value: tagName }
+    ])
+  }
 
   return (
     <View style={styles.container}>
       <Weather />
       <MoodSlider />
-      <MoodTag />
+      <MoodTag onAddTag={addTagHandler}/>
       <Button title='Save' onPress={() => console.log('Save clicked')} />
     </View>
   );

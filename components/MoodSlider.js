@@ -35,8 +35,8 @@ const MoodSlider = (props) => {
           <Text>4</Text>
           <Text>5</Text>
         </View>
-        <Divider style={styles.divider} />
       </View>
+      <Divider style={styles.divider} />
     </View>
   );
 };
@@ -44,6 +44,7 @@ const MoodSlider = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'center',
   },
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   slider: {
+    flex: 1,
     marginHorizontal: 40,
     alignItems: 'stretch',
     justifyContent: 'center',
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     backgroundColor: '#999',
-    marginTop: 20,
+    marginVertical: 20,
   },
 });
 export default MoodSlider;
