@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { AppLoading } from 'expo';
 import axios from 'axios';
@@ -21,6 +21,11 @@ const Weather = (props) => {
   //     alert(error.message);
   //   }
   // };
+
+  useEffect(() => {
+    console.log('##################### ' + weatherData);
+    props.onWeatherReady(weatherData);
+  });
 
   const getDataUsingSimpleGetCall = () => {
     axios

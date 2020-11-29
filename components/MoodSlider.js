@@ -5,9 +5,11 @@ import { Slider, Divider } from 'react-native-elements';
 const MoodSlider = (props) => {
   const [score, setScore] = useState(1);
 
-  const scoreHandler = (enteredScore) => {
-    setScore(enteredScore);
+  const scoreHandler = (value) => {
+    setScore(value);
+    props.onAddScore(score);
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>

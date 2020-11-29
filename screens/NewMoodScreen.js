@@ -11,6 +11,7 @@ import { TouchableOpacity } from 'react-native';
 const NewMoodScreen = (props) => {
   const [weather, setWeather] = useState('');
   const [tagList, setTagList] = useState([]);
+  const [sliderScore, setSliderScore] = useState(1);
 
   const testTags = TAGS.filter((tag) => tag.moodId === 'm1');
 
@@ -21,13 +22,29 @@ const NewMoodScreen = (props) => {
     ]);
   };
 
+  const weatherReadyHandler = (weatherText) => {
+    console.log('*********************' + weatherText);
+    setWeather(weatherText);
+  };
+
+  const addScoreHandler = (score) => {
+    setSliderScore(score);
+  };
+
+  const saveHandler = () => {
+    console.log('Saving...');
+    console.log(tagList);
+    console.log(weather);
+    console.log(sliderScore);
+  };
+
   const renderTagItem = (itemData) => {
     return (
       <TouchableOpacity>
         <Badge
-          value={<Text style={styles.tagItem}>{itemData.item.text}</Text>}
+          value={<Text style={styles.tagItem}>{itemData.item.value}</Text>}
           status='primary'
-          style={{ paddingHorizontal: 5 }}
+          style={{ paddingHorizontal: 10, marginHorizontal: 5 }}
         />
       </TouchableOpacity>
     );
@@ -35,14 +52,14 @@ const NewMoodScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <Weather />
-      <MoodSlider />
+      <Weather onWeatherReady={weatherReadyHandler} />
+      <MoodSlider onAddScore={addScoreHandler} />
       <MoodTag onAddTag={addTagHandler} />
       <View style={styles.list}>
         <FlatList data={tagList} renderItem={renderTagItem} horizontal />
       </View>
       <View style={styles.button}>
-        <Button title='Save' onPress={() => console.log('Save clicked')} />
+        <Button title='Save' onPress={saveHandler} />
       </View>
     </View>
   );
@@ -58,7 +75,7 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'stretch',
+    alignItems: 'center',
     justifyContent: 'space-around',
     paddingHorizontal: 50,
     marginBottom: 10,
