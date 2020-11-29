@@ -6,6 +6,7 @@ import {
   Button,
   KeyboardAvoidingView,
   Platform,
+  TouchableHighlight,
 } from 'react-native';
 import Weather from '../components/Weather';
 import MoodSlider from '../components/MoodSlider';
@@ -41,6 +42,7 @@ const NewMoodScreen = (props) => {
     console.log(tagList);
     console.log(weather);
     console.log(sliderScore);
+    props.navigation.navigate('MoodMain');
   };
 
   return (
@@ -48,13 +50,12 @@ const NewMoodScreen = (props) => {
       <KeyboardAvoidingView
         enabled
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
-        style={styles.flexGrowOne}
       >
         <Weather onWeatherReady={weatherReadyHandler} />
         <MoodSlider onAddScore={addScoreHandler} />
         <MoodTag onAddTag={addTagHandler} tagList={tagList} />
         <View style={styles.button}>
-          <Button title='Save' onPress={saveHandler} />
+          <Button title='save' onPress={saveHandler} />
         </View>
       </KeyboardAvoidingView>
     </View>
@@ -62,10 +63,6 @@ const NewMoodScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  flexGrowOne: {
-    flexGrow: 1,
-    // alignItems: 'stretch',
-  },
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -73,10 +70,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    width: '40%',
+    flex: 1,
     marginBottom: 20,
-    borderRadius: 10,
-    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: '#f000ff',
   },
 });
 export default NewMoodScreen;
