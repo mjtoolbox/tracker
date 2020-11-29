@@ -39,7 +39,7 @@ const NewMoodScreen = (props) => {
       <MoodSlider />
       <MoodTag onAddTag={addTagHandler} />
       <View style={styles.list}>
-        <FlatList data={testTags} renderItem={renderTagItem} horizontal />
+        <FlatList data={tagList} renderItem={renderTagItem} horizontal />
       </View>
       <View style={styles.button}>
         <Button title='Save' onPress={() => console.log('Save clicked')} />
