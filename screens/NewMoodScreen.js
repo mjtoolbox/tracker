@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  FlatList,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import Weather from '../components/Weather';
 import MoodSlider from '../components/MoodSlider';
 import MoodTag from '../components/MoodTag';
@@ -52,20 +60,29 @@ const NewMoodScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <Weather onWeatherReady={weatherReadyHandler} />
-      <MoodSlider onAddScore={addScoreHandler} />
-      <MoodTag onAddTag={addTagHandler} />
-      <View style={styles.list}>
-        <FlatList data={tagList} renderItem={renderTagItem} horizontal />
-      </View>
-      <View style={styles.button}>
-        <Button title='Save' onPress={saveHandler} />
-      </View>
+      <KeyboardAvoidingView
+        enabled
+        behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+        style={styles.flexGrowOne}
+      >
+        <Weather onWeatherReady={weatherReadyHandler} />
+        <MoodSlider onAddScore={addScoreHandler} />
+        <MoodTag onAddTag={addTagHandler} />
+        <View style={styles.list}>
+          <FlatList data={tagList} renderItem={renderTagItem} horizontal />
+        </View>
+        <View style={styles.button}>
+          <Button title='Save' onPress={saveHandler} />
+        </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  flexGrowOne: {
+    flexGrow: 1,
+  },
   container: {
     flex: 1,
     flexDirection: 'column',
