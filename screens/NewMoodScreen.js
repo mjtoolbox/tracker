@@ -4,7 +4,6 @@ import {
   Text,
   View,
   Button,
-  FlatList,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
@@ -12,8 +11,6 @@ import Weather from '../components/Weather';
 import MoodSlider from '../components/MoodSlider';
 import MoodTag from '../components/MoodTag';
 import { TAGS } from '../data/mood-data';
-import { Badge } from 'react-native-elements';
-import { TouchableOpacity } from 'react-native';
 
 //TODO: Custom marker for MultiSlider
 const NewMoodScreen = (props) => {
@@ -46,18 +43,6 @@ const NewMoodScreen = (props) => {
     console.log(sliderScore);
   };
 
-  const renderTagItem = (itemData) => {
-    return (
-      <TouchableOpacity>
-        <Badge
-          value={<Text style={styles.tagItem}>{itemData.item.value}</Text>}
-          status='primary'
-          style={{ paddingHorizontal: 10, marginHorizontal: 5 }}
-        />
-      </TouchableOpacity>
-    );
-  };
-
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
@@ -67,10 +52,7 @@ const NewMoodScreen = (props) => {
       >
         <Weather onWeatherReady={weatherReadyHandler} />
         <MoodSlider onAddScore={addScoreHandler} />
-        <MoodTag onAddTag={addTagHandler} />
-        <View style={styles.list}>
-          <FlatList data={tagList} renderItem={renderTagItem} horizontal />
-        </View>
+        <MoodTag onAddTag={addTagHandler} tagList={tagList} />
         <View style={styles.button}>
           <Button title='Save' onPress={saveHandler} />
         </View>
@@ -82,6 +64,7 @@ const NewMoodScreen = (props) => {
 const styles = StyleSheet.create({
   flexGrowOne: {
     flexGrow: 1,
+    // alignItems: 'stretch',
   },
   container: {
     flex: 1,
@@ -89,23 +72,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  list: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    paddingHorizontal: 50,
-    marginBottom: 10,
-    backgroundColor: '#f0ffff',
-  },
-  tagItem: {
-    color: 'white',
-    margin: 10,
-  },
   button: {
     width: '40%',
     marginBottom: 20,
     borderRadius: 10,
+    alignItems: 'center',
   },
 });
 export default NewMoodScreen;

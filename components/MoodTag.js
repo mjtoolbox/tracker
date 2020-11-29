@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import TagList from './TagList';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  FlatList,
+} from 'react-native';
+import { Badge } from 'react-native-elements';
+import { TouchableOpacity } from 'react-native';
 
 const MoodTag = (props) => {
   const [enteredTag, setEnteredTag] = useState('');
+
   const tagInputHandler = (enteredText) => {
     setEnteredTag(enteredText);
   };
@@ -12,10 +21,22 @@ const MoodTag = (props) => {
     setEnteredTag('');
   };
 
+  const renderTagItem = (itemData) => {
+    return (
+      <TouchableOpacity>
+        <Badge
+          value={<Text style={styles.tagItem}>{itemData.item.value}</Text>}
+          status='primary'
+          containerStyle={{ paddingHorizontal: 3 }}
+        />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.customtag}>Custom Tags</Text>
-      <Text style={styles.subtext}>Anything impacted your mood</Text>
+      <Text style={styles.subtext}>Anything impacted your mood right now</Text>
       <View style={styles.inputContainer}>
         <TextInput
           placeholder='Emotion tag'
@@ -26,6 +47,9 @@ const MoodTag = (props) => {
         <View style={styles.button}>
           <Button title='Add' onPress={addTagHandler} />
         </View>
+      </View>
+      <View style={styles.list}>
+        <FlatList data={props.tagList} renderItem={renderTagItem} horizontal />
       </View>
     </View>
   );
@@ -38,6 +62,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
     paddingTop: 10,
+    // backgroundColor: '#0f00ff',
   },
   customtag: {
     fontFamily: 'open-sans-bold',
@@ -51,21 +76,35 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'flex-start',
     justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: '#f000ff',
+    minHeight: 40,
   },
   inputBox: {
     width: '70%',
-    height: 40,
+    height: 35,
     borderColor: 'black',
     borderWidth: 1,
     padding: 10,
-    marginBottom: 10,
+    marginBottom: 5,
     borderRadius: 5,
   },
   button: {
     width: '15%',
-    margin: 5,
+    paddingLeft: 5,
+    paddingBottom: 3,
+  },
+  list: {
+    flex: 1,
+    minHeight: 30,
+    flexDirection: 'row',
+    paddingHorizontal: 25,
+    // backgroundColor: '#f0ffff',
+  },
+  tagItem: {
+    color: 'white',
+    margin: 10,
   },
 });
 export default MoodTag;
