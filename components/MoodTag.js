@@ -6,6 +6,7 @@ import {
   Button,
   TextInput,
   FlatList,
+  Keyboard,
 } from 'react-native';
 import { Badge } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native';
@@ -19,6 +20,7 @@ const MoodTag = (props) => {
   const addTagHandler = () => {
     props.onAddTag(enteredTag);
     setEnteredTag('');
+    Keyboard.dismiss();
   };
 
   const renderTagItem = (itemData) => {
@@ -43,6 +45,7 @@ const MoodTag = (props) => {
           style={styles.inputBox}
           onChangeText={tagInputHandler}
           value={enteredTag}
+          maxLength={20}
         />
         <View style={styles.button}>
           <Button title='Add' onPress={addTagHandler} />
