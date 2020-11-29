@@ -43,7 +43,7 @@ const MoodSlider = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'center',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     backgroundColor: '#999',
-    marginVertical: 20,
+    marginVertical: 40,
   },
 });
 export default MoodSlider;

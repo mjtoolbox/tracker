@@ -46,7 +46,7 @@ const Weather = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={{fontSize: 20}}>Current weather</Text>
+      <Text style={{ fontSize: 20 }}>Current weather</Text>
       <Text>{weatherData}</Text>
     </View>
   );

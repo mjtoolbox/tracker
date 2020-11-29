@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import TagList from './TagList';
 
 const MoodTag = (props) => {
   const [enteredTag, setEnteredTag] = useState('');
@@ -10,6 +11,7 @@ const MoodTag = (props) => {
     props.onAddTag(enteredTag);
     setEnteredTag('');
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.customtag}>Custom Tags</Text>
@@ -31,10 +33,11 @@ const MoodTag = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'center',
+    paddingTop: 10,
   },
   customtag: {
     fontFamily: 'open-sans-bold',
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   button: {
-    width: '20%',
+    width: '15%',
     margin: 5,
   },
 });
