@@ -12,6 +12,10 @@ import Weather from '../components/Weather';
 import MoodSlider from '../components/MoodSlider';
 import MoodTag from '../components/MoodTag';
 import { TAGS } from '../data/mood-data';
+import { firebase } from '../config';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreWarnings(['Setting a timer']);
 
 //TODO: Custom marker for MultiSlider
 const NewMoodScreen = (props) => {
@@ -42,6 +46,15 @@ const NewMoodScreen = (props) => {
     console.log(tagList);
     console.log(weather);
     console.log(sliderScore);
+
+    var db = firebase.database();
+    db.ref('/moodlist').push({
+      id: Date.now(),
+      weather: weather,
+      score: sliderScore,
+      tags: tagList,
+    });
+
     props.navigation.navigate('MoodMain');
   };
 
